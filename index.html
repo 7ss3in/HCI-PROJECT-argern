@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Arngren — Redesigned (Front-end Prototype)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Skip link for accessibility -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="header" role="banner">
+    <div class="container header__row">
+      <div class="brand">
+        <div class="brand__logo" aria-hidden="true">A</div>
+        <div class="brand__text">
+          <div class="brand__name">Arngren</div>
+          <div class="brand__tag">Redesigned e-commerce prototype</div>
+        </div>
+      </div>
+
+      <form class="search" role="search" aria-label="Search products">
+        <label class="sr-only" for="q">Search</label>
+        <input id="q" name="q" type="search" placeholder="Search products (e.g., e-bike, scooter)..." />
+        <button class="btn btn--primary" type="submit">Search</button>
+      </form>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#" class="nav__link">Home</a>
+        <a href="#" class="nav__link">Categories</a>
+        <a href="#" class="nav__link">Deals</a>
+        <a href="#" class="nav__link">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="subheader">
+    <div class="container subheader__row">
+      <div class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="#">Home</a>
+        <span aria-hidden="true">›</span>
+        <span>Electric Vehicles</span>
+      </div>
+
+      <div class="actions">
+        <button class="btn" id="btnCart" type="button" aria-label="Open cart">
+          Cart <span class="badge" id="cartCount" aria-label="Items in cart">0</span>
+        </button>
+        <button class="btn" type="button">Sign in</button>
+      </div>
+    </div>
+  </div>
+
+  <main id="main" class="container layout" role="main">
+    <!-- Filters -->
+    <aside class="panel" aria-label="Filters">
+      <h2 class="panel__title">Filters</h2>
+
+      <div class="field">
+        <label for="category">Category</label>
+        <select id="category">
+          <option value="all">All</option>
+          <option value="ebike">E-bikes</option>
+          <option value="scooter">Scooters</option>
+          <option value="atv">ATV</option>
+          <option value="kids">Kids vehicles</option>
+          <option value="gadgets">Gadgets</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="sort">Sort</label>
+        <select id="sort">
+          <option value="featured">Featured</option>
+          <option value="priceAsc">Price: Low to High</option>
+          <option value="priceDesc">Price: High to Low</option>
+          <option value="nameAsc">Name: A–Z</option>
+        </select>
+      </div>
+
+      <fieldset class="fieldset">
+        <legend>Price range</legend>
+        <label class="checkbox">
+          <input type="checkbox" value="0-500" class="price" />
+          <span>Under $500</span>
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" value="500-1500" class="price" />
+          <span>$500 – $1,500</span>
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" value="1500-999999" class="price" />
+          <span>$1,500+</span>
+        </label>
+      </fieldset>
+
+      <button class="btn btn--ghost" id="resetFilters" type="button">Reset filters</button>
+
+    
+    </aside>
+
+    <!-- Content -->
+    <section class="content" aria-label="Product listing">
+      <div class="content__header">
+        <div>
+          <h1 class="title">Electric Vehicles</h1>
+          <p class="subtitle">Browse products with a clean layout and clear actions.</p>
+        </div>
+
+        <div class="viewtoggle" aria-label="View options">
+          <button class="btn btn--small btn--active" id="gridBtn" type="button">Grid</button>
+          <button class="btn btn--small" id="listBtn" type="button">List</button>
+        </div>
+      </div>
+
+      <div class="status" id="status" aria-live="polite"></div>
+
+      <div class="grid" id="productGrid" aria-label="Products"></div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__row">
+     
+      <div class="muted">© 2025</div>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
